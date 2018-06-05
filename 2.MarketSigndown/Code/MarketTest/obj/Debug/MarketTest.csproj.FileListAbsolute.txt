@@ -1,0 +1,9 @@
+D:\Documents\Visual Studio 2017\Sequel-DevTest\Sequel-DevTest-20161222\2.MarketSigndown\Code\MarketTest\obj\Debug\MarketTest.csprojAssemblyReference.cache
+D:\Documents\Visual Studio 2017\Sequel-DevTest\Sequel-DevTest-20161222\2.MarketSigndown\Code\MarketTest\obj\Debug\MarketTest.csproj.CoreCompileInputs.cache
+D:\Documents\Visual Studio 2017\Sequel-DevTest\Sequel-DevTest-20161222\2.MarketSigndown\Code\MarketTest\bin\Debug\MarketTest.dll
+D:\Documents\Visual Studio 2017\Sequel-DevTest\Sequel-DevTest-20161222\2.MarketSigndown\Code\MarketTest\bin\Debug\MarketTest.pdb
+D:\Documents\Visual Studio 2017\Sequel-DevTest\Sequel-DevTest-20161222\2.MarketSigndown\Code\MarketTest\bin\Debug\Market.dll
+D:\Documents\Visual Studio 2017\Sequel-DevTest\Sequel-DevTest-20161222\2.MarketSigndown\Code\MarketTest\bin\Debug\Market.pdb
+D:\Documents\Visual Studio 2017\Sequel-DevTest\Sequel-DevTest-20161222\2.MarketSigndown\Code\MarketTest\obj\Debug\MarketTest.csproj.CopyComplete
+D:\Documents\Visual Studio 2017\Sequel-DevTest\Sequel-DevTest-20161222\2.MarketSigndown\Code\MarketTest\obj\Debug\MarketTest.dll
+D:\Documents\Visual Studio 2017\Sequel-DevTest\Sequel-DevTest-20161222\2.MarketSigndown\Code\MarketTest\obj\Debug\MarketTest.pdb
