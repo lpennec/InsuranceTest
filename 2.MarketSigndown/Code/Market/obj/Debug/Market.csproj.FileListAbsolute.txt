@@ -1,6 +1,0 @@
-D:\Documents\Visual Studio 2017\Sequel-DevTest\Sequel-DevTest-20161222\2.MarketSigndown\Code\Market\obj\Debug\Market.csprojAssemblyReference.cache
-D:\Documents\Visual Studio 2017\Sequel-DevTest\Sequel-DevTest-20161222\2.MarketSigndown\Code\Market\obj\Debug\Market.csproj.CoreCompileInputs.cache
-D:\Documents\Visual Studio 2017\Sequel-DevTest\Sequel-DevTest-20161222\2.MarketSigndown\Code\Market\bin\Debug\Market.dll
-D:\Documents\Visual Studio 2017\Sequel-DevTest\Sequel-DevTest-20161222\2.MarketSigndown\Code\Market\bin\Debug\Market.pdb
-D:\Documents\Visual Studio 2017\Sequel-DevTest\Sequel-DevTest-20161222\2.MarketSigndown\Code\Market\obj\Debug\Market.dll
-D:\Documents\Visual Studio 2017\Sequel-DevTest\Sequel-DevTest-20161222\2.MarketSigndown\Code\Market\obj\Debug\Market.pdb
