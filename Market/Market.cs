@@ -9,54 +9,39 @@ namespace Market
     {
         public List<Underwriter> MarketSigndown(float TotalOrder, List<Underwriter> underwriters)
         {
-            // Sequel - Development Team interview
-            // -----------------------------------
-            // Please enter your code below this line
+        // Sequel - Development Team interview
+        // -----------------------------------
+        // Please enter your code below this line
 
-            //Sort by SeqNum
-            underwriters.OrderBy(o => o.SeqNum).ToList();
-
-            //Total of writtenLine
-            float writtenlinetotal = underwriters.Sum(item => item.WrittenLine);
-
-            if (writtenlinetotal == TotalOrder)
-            {
-                foreach (var underwriter in underwriters)
-                {
-                    underwriter.SignedLine = underwriter.WrittenLine;
-                }
-                return underwriters;
-            } else
-            {
-                float div = TotalOrder / writtenlinetotal;
-                //Function to loop through underwriters to apply new coeff
-                return SignedLineCalc(div, underwriters, TotalOrder, "");
-            }
-        }
-
-
-        //Method to find new SignedLine
-        private List<Underwriter> SignedLineCalc(float div, List<Underwriter> underwriters, float TotalOrder, string skip)
-        {
+        
+            //define new coefficient to share between underwriters
+            underwriters = underwriters.OrderBy(x => x.SeqNum).ToList();
+        restart:
+            float coeff = (TotalOrder - underwriters.Sum(x => x.SignedLine)) / underwriters.Where(x => x.SignedLine == 0).Sum(x => x.WrittenLine);
             foreach (var underwriter in underwriters)
             {
-                if(underwriter.Name == skip)
+                //if it has already signed don't change anything
+                if (underwriter.SignedLine != 0)
                 {
                     continue;
                 }
-
-                //DEFINE NEW FACTOR (BALANCE BETWEEN WRITTENLINE AND SIGNEDLINE
-                underwriter.SignedLine = div * underwriter.WrittenLine;
-                if (underwriter.SignedLine < underwriter.MinLine)
+                //if the anticipated Signedline is below Minline
+                if (underwriter.WrittenLine * coeff < underwriter.MinLine)
                 {
+                    //Erase all SignedLine if SeqNum is lower and commit this one
+                    foreach (var item in underwriters.Where(x => x.SeqNum < underwriter.SeqNum))
+                    {
+                        item.SignedLine = 0;
+                    } 
                     underwriter.SignedLine = underwriter.MinLine;
-                    float newTotalOrder = underwriters.Sum(item => item.WrittenLine) - underwriter.WrittenLine;
-                    float newwrittenlinetotal = TotalOrder - underwriter.SignedLine;
-                    float newdiv = newwrittenlinetotal / newTotalOrder;
-                    return SignedLineCalc(newdiv, underwriters, newTotalOrder, underwriter.Name);
+                    goto restart;
+                } else
+                {
+                    //commit SignedLine using calculated coeff
+                    underwriter.SignedLine = underwriter.WrittenLine * coeff;
                 }
             }
             return underwriters;
-        }
+        }       
     }
 }

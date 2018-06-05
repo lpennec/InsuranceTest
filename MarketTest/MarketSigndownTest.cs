@@ -201,7 +201,6 @@ namespace MarketSigndownTestProject
             listUWs.Add(new Market.Underwriter(30, "Squidward Tentacles", 40, 20, 0));
 
             listUWs = market.MarketSigndown(100, listUWs);
-
             assertSignedLine(listUWs, "Sponge Bob", 30f);
             assertSignedLine(listUWs, "Patrick Star", 50f);
             assertSignedLine(listUWs, "Squidward Tentacles", 20f);
@@ -225,12 +224,29 @@ namespace MarketSigndownTestProject
             assertSignedLine(listUWs, "Squidward Tentacles", 33f);
         }
 
+        [Description("Check if the Method sorts by sequencenumber"), TestMethod]
+        public void TestMarketSigndown_11_Mins6_SortUWsBySequenceNumber()
+        {
+
+            // test the trivial case.
+            market = new Market.Market();
+            List<Market.Underwriter> listUWs = new List<Market.Underwriter>();
+            listUWs.Add(new Market.Underwriter(30, "Sponge Bob", 80, 20, 0));
+            listUWs.Add(new Market.Underwriter(50, "Patrick Star", 90, 50, 0));
+            listUWs.Add(new Market.Underwriter(10, "Squidward Tentacles", 40, 20, 0));
+
+            listUWs = market.MarketSigndown(100, listUWs);
+            assertSignedLine(listUWs, "Sponge Bob", 30f);
+            assertSignedLine(listUWs, "Patrick Star", 50f);
+            assertSignedLine(listUWs, "Squidward Tentacles", 20f);
+        }
+
         public void assertSignedLine(List<Market.Underwriter> listUWs, string name, float signedLine)
         {
             Market.Underwriter u1 = listUWs.Find(u => u.Name.Equals(name));
             Assert.IsNotNull(u1, " underwriter " + name + " was not found!");
 
-            Assert.AreEqual(u1.SignedLine, signedLine, 0.1f, " expected signed line for " + name + " is " + signedLine.ToString() + ". It was " + u1.SignedLine.ToString());
+            Assert.AreEqual(signedLine, u1.SignedLine, 0.1f, " expected signed line for " + name + " is " + signedLine.ToString() + ". It was " + u1.SignedLine.ToString());
         }
     }
 }
